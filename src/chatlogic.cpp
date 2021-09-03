@@ -19,10 +19,10 @@ ChatLogic::ChatLogic()
     ////
 
     // create instance of chatbot
-    _chatBot = new ChatBot("../images/chatbot.png");
+//     _chatBot = new ChatBot("../images/chatbot.png");
 
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
-    _chatBot->SetChatLogicHandle(this);
+//     _chatBot->SetChatLogicHandle(this);
 
     ////
     //// EOF STUDENT CODE
@@ -99,7 +99,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
             // process tokens for current line
             auto type = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) 
-          { return pair.first == "TYP";});
+          { return pair.first == "TYPE";});
           
             if (type != tokens.end())
             {
@@ -206,11 +206,10 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     }
 
     // add chatbot to graph root node
-    ChatBot stackChatBot = ChatBot("../images/chatbot.png");   
-    stackChatBot.SetChatLogicHandle(this);   
-    stackChatBot.SetRootNode(rootNode);    
-    _chatBot = &stackChatBot;    
-    rootNode->MoveChatbotHere(std::move(stackChatBot));
+    ChatBot ChatBot("../images/chatbot.png");   
+    ChatBot.SetChatLogicHandle(this);   
+    ChatBot.SetRootNode(rootNode);    
+    rootNode->MoveChatbotHere(std::move(ChatBot));
     
     ////
     //// EOF STUDENT CODE
